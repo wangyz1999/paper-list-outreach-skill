@@ -1,5 +1,8 @@
 # paper-list-outreach-skill
 
+<img width="1774" height="887" alt="paper-list-outreach-skill-diagram" src="https://github.com/user-attachments/assets/c12434da-82bb-49c0-9b9f-205702022840" />
+
+
 An agent skill that helps get a research paper added to curated GitHub paper-lists (`awesome-*`, surveys, `*-papers`, benchmark indexes).
 
 It is written as a plain-Markdown skill (`SKILL.md` + helper scripts), so it works with any coding agent that can read a skill file and run shell commands, including Claude Code, OpenAI Codex, OpenClaw, and similar tools.
