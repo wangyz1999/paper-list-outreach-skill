@@ -1,12 +1,14 @@
 # paper-list-outreach-skill
 
-A [Claude Code](https://docs.claude.com/en/docs/claude-code) skill that helps get a research paper added to curated GitHub paper-lists (`awesome-*`, surveys, `*-papers`, benchmark indexes).
+An agent skill that helps get a research paper added to curated GitHub paper-lists (`awesome-*`, surveys, `*-papers`, benchmark indexes).
+
+It is written as a plain-Markdown skill (`SKILL.md` + helper scripts), so it works with any coding agent that can read a skill file and run shell commands, including Claude Code, OpenAI Codex, OpenClaw, and similar tools.
 
 Given **a paper** (arXiv link or metadata) and **N** = how many relevant repos you want, the skill:
 
 1. Discovers relevant repos across stated *and* latent topics (not just the abstract's keywords).
 2. Skips repos that already list the paper (dedup).
-3. Edits each repo locally in its exact entry format (one subagent per repo).
+3. Edits each repo locally in its exact entry format (one sub-task per repo).
 4. Packages per-repo branches, patches, personalized PR messages, and a ranked summary for **you** to submit.
 
 It never pushes anything. You stay in control of every PR.
@@ -29,18 +31,25 @@ Example:
 
 ## Install
 
-Copy the skill into your Claude Code skills directory:
+Clone the repo, then point your agent at the skill.
+
+```bash
+git clone https://github.com/wangyz1999/paper-list-outreach-skill.git
+```
+
+**Claude Code** — copy the skill into a skills directory:
 
 ```bash
 # user-level (available in every project)
-git clone https://github.com/wangyz1999/paper-list-outreach-skill.git
 cp -R paper-list-outreach-skill/skills/paper-list-outreach ~/.claude/skills/
 
 # or project-level
 cp -R paper-list-outreach-skill/skills/paper-list-outreach .claude/skills/
 ```
 
-Then in Claude Code, invoke it with `/paper-list-outreach` or just ask to "add my paper to awesome lists".
+Then invoke it with `/paper-list-outreach` or just ask to "add my paper to awesome lists".
+
+**Codex, OpenClaw, and other agents** — there is no special install step. Point the agent at `skills/paper-list-outreach/SKILL.md` (open it, reference it in your prompt, or drop it in the working directory) and ask it to follow the skill. The scripts in `scripts/` are plain shell and run anywhere.
 
 ## Requirements
 
