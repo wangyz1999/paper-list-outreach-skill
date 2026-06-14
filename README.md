@@ -31,7 +31,15 @@ Example:
 
 ## Install
 
-Clone the repo, then point your agent at the skill.
+**Recommended: let your agent install it.** Just paste this repo link to your coding agent (Claude Code, Codex, OpenClaw, etc.) and ask it to install the skill, for example:
+
+> Install the skill from https://github.com/wangyz1999/paper-list-outreach-skill into my skills directory.
+
+The agent will clone the repo and place `skills/paper-list-outreach/` in the right location for your tool.
+
+### Manual install
+
+If you'd rather do it by hand, clone the repo:
 
 ```bash
 git clone https://github.com/wangyz1999/paper-list-outreach-skill.git
